@@ -1,0 +1,326 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.studentmanagementsystem.studentmanagementsystem.controller.HomeController"
+>
+    <top>
+        <VBox>
+            <!-- Header Section -->
+            <HBox alignment="CENTER" prefHeight="80.0" style="-fx-background-color: #2E86AB;">
+                <padding>
+                    <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
+                </padding>
+                <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+<!--                        <Image url="@../images/university-logo.png" />-->
+                    </image>
+                </ImageView>
+                <VBox alignment="CENTER_LEFT" spacing="5.0">
+                    <HBox.margin>
+                        <Insets left="15.0" />
+                    </HBox.margin>
+                    <Label text="Course Registration System" textFill="WHITE">
+                        <font>
+                            <Font name="System Bold" size="24.0" />
+                        </font>
+                    </Label>
+                    <Label text="Educational Institution Management Portal" textFill="#E8F4FD">
+                        <font>
+                            <Font size="14.0" />
+                        </font>
+                    </Label>
+                </VBox>
+                <Region HBox.hgrow="ALWAYS" />
+                <VBox alignment="CENTER_RIGHT" spacing="5.0">
+                    <Label fx:id="welcomeLabel" text="Welcome, User!" textFill="WHITE">
+                        <font>
+                            <Font name="System Bold" size="16.0" />
+                        </font>
+                    </Label>
+                    <Label fx:id="dateTimeLabel" text="Current Date &amp; Time" textFill="#E8F4FD">
+                        <font>
+                            <Font size="12.0" />
+                        </font>
+                    </Label>
+                </VBox>
+            </HBox>
+
+            <!-- Navigation Menu -->
+            <MenuBar>
+                <Menu text="File">
+                    <MenuItem fx:id="loginMenuItem" text="Login" onAction="#handleLogin" />
+                    <MenuItem fx:id="logoutMenuItem" text="Logout" onAction="#handleLogout" />
+                    <SeparatorMenuItem />
+                    <MenuItem text="Exit" onAction="#handleExit" />
+                </Menu>
+                <Menu text="Student">
+                    <MenuItem text="Student Registration" onAction="#handleStudentRegistration" />
+                    <MenuItem text="Course Registration" onAction="#handleCourseRegistration" />
+                    <MenuItem text="View Schedule" onAction="#handleViewSchedule" />
+                    <MenuItem text="Drop Courses" onAction="#handleDropCourses" />
+                </Menu>
+                <Menu text="Faculty">
+                    <MenuItem text="Manage Courses" onAction="#handleManageCourses" />
+                    <MenuItem text="View Enrollments" onAction="#handleViewEnrollments" />
+                    <MenuItem text="Grade Management" onAction="#handleGradeManagement" />
+                </Menu>
+                <Menu text="Admin">
+                    <MenuItem text="User Management" onAction="#handleUserManagement" />
+                    <MenuItem text="System Reports" onAction="#handleSystemReports" />
+                    <MenuItem text="Database Management" onAction="#handleDatabaseManagement" />
+                </Menu>
+                <Menu text="Help">
+                    <MenuItem text="User Guide" onAction="#handleUserGuide" />
+                    <MenuItem text="About" onAction="#handleAbout" />
+                </Menu>
+            </MenuBar>
+        </VBox>
+    </top>
+
+    <center>
+        <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" vbarPolicy="AS_NEEDED">
+            <content>
+                <VBox spacing="30.0">
+                    <padding>
+                        <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
+                    </padding>
+
+                    <!-- Welcome Section -->
+                    <VBox alignment="CENTER" spacing="15.0">
+                        <Label text="Welcome to Course Registration System" textAlignment="CENTER">
+                            <font>
+                                <Font name="System Bold" size="32.0" />
+                            </font>
+                        </Label>
+                        <Label text="Streamline your academic journey with our comprehensive course management platform" textAlignment="CENTER" textFill="#666666" wrapText="true">
+                            <font>
+                                <Font size="16.0" />
+                            </font>
+                        </Label>
+                    </VBox>
+
+                    <!-- Quick Actions Section -->
+                    <VBox spacing="20.0">
+                        <Label text="Quick Actions" textFill="#2E86AB">
+                            <font>
+                                <Font name="System Bold" size="24.0" />
+                            </font>
+                        </Label>
+
+                        <GridPane hgap="20.0" vgap="20.0">
+                            <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                            </columnConstraints>
+
+                            <!-- Student Actions -->
+                            <VBox alignment="CENTER" spacing="15.0" style="-fx-background-color: #F8F9FA; -fx-background-radius: 10; -fx-border-color: #E9ECEF; -fx-border-radius: 10;" GridPane.columnIndex="0">
+                                <padding>
+                                    <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                                </padding>
+                                <ImageView fitHeight="64.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+<!--                                        <Image url="@../images/student-icon.png" />-->
+                                    </image>
+                                </ImageView>
+                                <Label text="Student Portal" textAlignment="CENTER">
+                                    <font>
+                                        <Font name="System Bold" size="18.0" />
+                                    </font>
+                                </Label>
+                                <Label text="Register for courses, view schedules, and manage your academic profile" textAlignment="CENTER" wrapText="true">
+                                    <font>
+                                        <Font size="14.0" />
+                                    </font>
+                                </Label>
+                                <Button fx:id="studentPortalBtn" mnemonicParsing="false" onAction="#handleStudentPortal" prefWidth="150.0" style="-fx-background-color: #28A745; -fx-text-fill: white;" text="Access Portal">
+                                    <font>
+                                        <Font name="System Bold" size="14.0" />
+                                    </font>
+                                </Button>
+                            </VBox>
+
+                            <!-- Faculty Actions -->
+                            <VBox alignment="CENTER" spacing="15.0" style="-fx-background-color: #F8F9FA; -fx-background-radius: 10; -fx-border-color: #E9ECEF; -fx-border-radius: 10;" GridPane.columnIndex="1">
+                                <padding>
+                                    <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                                </padding>
+                                <ImageView fitHeight="64.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+<!--                                        <Image url="@../images/faculty-icon.png" />-->
+                                    </image>
+                                </ImageView>
+                                <Label text="Faculty Portal" textAlignment="CENTER">
+                                    <font>
+                                        <Font name="System Bold" size="18.0" />
+                                    </font>
+                                </Label>
+                                <Label text="Manage courses, view enrollments, and track student progress" textAlignment="CENTER" wrapText="true">
+                                    <font>
+                                        <Font size="14.0" />
+                                    </font>
+                                </Label>
+                                <Button fx:id="facultyPortalBtn" mnemonicParsing="false" onAction="#handleFacultyPortal" prefWidth="150.0" style="-fx-background-color: #007BFF; -fx-text-fill: white;" text="Access Portal">
+                                    <font>
+                                        <Font name="System Bold" size="14.0" />
+                                    </font>
+                                </Button>
+                            </VBox>
+
+                            <!-- Admin Actions -->
+                            <VBox alignment="CENTER" spacing="15.0" style="-fx-background-color: #F8F9FA; -fx-background-radius: 10; -fx-border-color: #E9ECEF; -fx-border-radius: 10;" GridPane.columnIndex="2">
+                                <padding>
+                                    <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                                </padding>
+                                <ImageView fitHeight="64.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+<!--                                        <Image url="@../images/admin-icon.png" />-->
+                                    </image>
+                                </ImageView>
+                                <Label text="Admin Portal" textAlignment="CENTER">
+                                    <font>
+                                        <Font name="System Bold" size="18.0" />
+                                    </font>
+                                </Label>
+                                <Label text="System administration, user management, and comprehensive reporting" textAlignment="CENTER" wrapText="true">
+                                    <font>
+                                        <Font size="14.0" />
+                                    </font>
+                                </Label>
+                                <Button fx:id="adminPortalBtn" mnemonicParsing="false" onAction="#handleAdminPortal" prefWidth="150.0" style="-fx-background-color: #DC3545; -fx-text-fill: white;" text="Access Portal">
+                                    <font>
+                                        <Font name="System Bold" size="14.0" />
+                                    </font>
+                                </Button>
+                            </VBox>
+                        </GridPane>
+                    </VBox>
+
+                    <!-- System Information Section -->
+                    <VBox spacing="20.0">
+                        <Label text="System Information" textFill="#2E86AB">
+                            <font>
+                                <Font name="System Bold" size="24.0" />
+                            </font>
+                        </Label>
+
+                        <GridPane hgap="30.0" vgap="15.0">
+                            <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                            </columnConstraints>
+
+                            <!-- System Status -->
+                            <VBox spacing="10.0" style="-fx-background-color: #E8F5E8; -fx-background-radius: 8; -fx-border-color: #28A745; -fx-border-radius: 8;" GridPane.columnIndex="0">
+                                <padding>
+                                    <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+                                </padding>
+                                <Label text="System Status" textFill="#28A745">
+                                    <font>
+                                        <Font name="System Bold" size="16.0" />
+                                    </font>
+                                </Label>
+                                <Label fx:id="systemStatusLabel" text="● Online - All systems operational" textFill="#28A745">
+                                    <font>
+                                        <Font size="14.0" />
+                                    </font>
+                                </Label>
+                                <Label fx:id="lastUpdateLabel" text="Last Updated: Today, 10:30 AM" textFill="#666666">
+                                    <font>
+                                        <Font size="12.0" />
+                                    </font>
+                                </Label>
+                            </VBox>
+
+                            <!-- Registration Period -->
+                            <VBox spacing="10.0" style="-fx-background-color: #FFF3CD; -fx-background-radius: 8; -fx-border-color: #FFC107; -fx-border-radius: 8;" GridPane.columnIndex="1">
+                                <padding>
+                                    <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+                                </padding>
+                                <Label text="Registration Period" textFill="#856404">
+                                    <font>
+                                        <Font name="System Bold" size="16.0" />
+                                    </font>
+                                </Label>
+                                <Label fx:id="registrationPeriodLabel" text="Spring 2024: Jan 15 - Feb 5" textFill="#856404">
+                                    <font>
+                                        <Font size="14.0" />
+                                    </font>
+                                </Label>
+                                <Label fx:id="daysRemainingLabel" text="12 days remaining" textFill="#856404">
+                                    <font>
+                                        <Font size="12.0" />
+                                    </font>
+                                </Label>
+                            </VBox>
+
+                            <!-- Quick Stats -->
+                            <VBox spacing="10.0" style="-fx-background-color: #E7F3FF; -fx-background-radius: 8; -fx-border-color: #007BFF; -fx-border-radius: 8;" GridPane.columnIndex="0" GridPane.rowIndex="1">
+                                <padding>
+                                    <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+                                </padding>
+                                <Label text="Quick Statistics" textFill="#007BFF">
+                                    <font>
+                                        <Font name="System Bold" size="16.0" />
+                                    </font>
+                                </Label>
+                                <Label fx:id="totalCoursesLabel" text="Total Courses: 245" textFill="#007BFF">
+                                    <font>
+                                        <Font size="14.0" />
+                                    </font>
+                                </Label>
+                                <Label fx:id="totalStudentsLabel" text="Enrolled Students: 1,847" textFill="#007BFF">
+                                    <font>
+                                        <Font size="14.0" />
+                                    </font>
+                                </Label>
+                            </VBox>
+
+                            <!-- Announcements -->
+                            <VBox spacing="10.0" style="-fx-background-color: #F8D7DA; -fx-background-radius: 8; -fx-border-color: #DC3545; -fx-border-radius: 8;" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                <padding>
+                                    <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+                                </padding>
+                                <Label text="Important Notice" textFill="#721C24">
+                                    <font>
+                                        <Font name="System Bold" size="16.0" />
+                                    </font>
+                                </Label>
+                                <Label fx:id="announcementLabel" text="System maintenance scheduled for Jan 20, 2024 from 2:00 AM - 4:00 AM" textFill="#721C24" wrapText="true">
+                                    <font>
+                                        <Font size="14.0" />
+                                    </font>
+                                </Label>
+                            </VBox>
+                        </GridPane>
+                    </VBox>
+                </VBox>
+            </content>
+        </ScrollPane>
+    </center>
+
+    <bottom>
+        <HBox alignment="CENTER" prefHeight="40.0" style="-fx-background-color: #F8F9FA; -fx-border-color: #E9ECEF; -fx-border-width: 1 0 0 0;">
+            <padding>
+                <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
+            </padding>
+            <Label text="© 2024 Educational Institution - Course Registration System v1.0" textFill="#666666">
+                <font>
+                    <Font size="12.0" />
+                </font>
+            </Label>
+            <Region HBox.hgrow="ALWAYS" />
+            <Label fx:id="connectionStatusLabel" text="Connected to Database" textFill="#28A745">
+                <font>
+                    <Font size="12.0" />
+                </font>
+            </Label>
+        </HBox>
+    </bottom>
+</BorderPane>
